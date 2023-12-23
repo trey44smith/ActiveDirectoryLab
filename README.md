@@ -1,20 +1,21 @@
 <h1>Active Directory Home Lab</h1>
 
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
+ ### [YouTube Demonstration]()
 
 <h2>Description</h2>
-
+Creating an Active Directory Home Lab using Windows 10 on VirtualBox. I then added users with PowerShell.
 <br />
 
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>PowerShell</b> 
-- <b>Diskpart</b>
+- <b>Active Directory</b>
+- <b>PowerShell</b>
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Windows 10</b>
+- <b>VirtualBox</b>
 
 <h2>Program walk-through:</h2>
 
