@@ -14,7 +14,8 @@ Creating an Active Directory Home Lab using Windows 10 on VirtualBox. I then add
 
 <h2>Environments Used </h2>
 
-- <b>Windows 10</b>
+- <b>Windows 10 ISO/b>
+- <b>Server 2019 ISO/b>
 - <b>VirtualBox</b>
 
 <h2>Program walk-through:</h2>
