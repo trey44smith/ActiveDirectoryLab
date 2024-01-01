@@ -29,51 +29,193 @@ Creating an Active Directory Home Lab using Windows 10 on VirtualBox. I then add
 
 <p>
 Step 1: Download and install VirtualBox and the Extension Pack(https://www.virtualbox.org/wiki/Downloads) <br />
+ <br />
 Step 2: Download the Windows 10 64-bit ISO (https://www.microsoft.com/en-us/software-download/windows10ISO) and Server 2019 64-bit ISO (https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019)<br />
+ <br />
 Step 3: Create the Virtual Machine on VirtualBox with the following fields<br />
  - Name: DC<br />
  - Version: Other Windows (64-bit)<br />
  - Memory Size: 2048 mb<br />
  - File Location and Size: 20.00 GB<br />
+ <br />
 Step 4: Update Settings<br />
 - Settings > General > Advanced > Shared Clipboard: Biderectional<br />
 - Settings > General > Advanced > Drag'n'Drop: Biderectional <br />
 - Settings > General > Network > Adapter 2 > Enable Network Adapter > Attached to: Internal Network<br />
+ <br />
 Step 5: Start the Virtual Machine (VM)<br />
 - Select Server 2019 ISO and click start<br />
+ <br />
 Step 6: Install Server 2019<br />
 - Select Windows 2019 Standard Evaluation (Desktop Experience)<br />
 - Select Custom Install<br />
 - Click next until installation begins<br />
 - ** Do not press any buttons while system restarts during installation **<br />
+ <br />
 Step 7: Enter Administrator Password<br />
 - Use Password1 for convenience<br />
 - This is okay because this is a homelab where we will be the only one using the environment<br />
+ <br />
 Step 8: Click Input > Keyboard > Insert Ctrl+Alt+Del to bring up the login page and login<br />
+ <br />
 Step 9: Install VM Guest Experience<br />
 - Devices > Insert Guest Additions CD Image<br />
+ <br />
 Step 10: Click File Explorer > This PC > VirtualBox Guest Additions > Run VBoxWindowsAdditions-amd64<br />
+ <br />
 Step 11: Click Reboot Later<br />
+ <br />
 Step 12: Shutdown the VM<br />
+ <br />
 Step 13: Start the VM and login to Windows<br />
 </p>
 
-<h2>Part 2:</h2>
+<h2>Part 2: Set Up IP Addressing</h2>
+
+<p>
+Step 1: Navigate to Network & Internet Settings <br />
+- Click Ethernet > Change adapter options <br />
+<br />
+Step 2: Right click one of the ethernets and select Status > Details <br />
+- Look at the IPv4 address. If it shows 10. something, then it is the ethernet connected to the internet <br />
+<br />
+Step 3: Right click the same ethernet chosen previously. Select Rename. <br />
+- Rename it "_INTERNET_" <br />
+<br /> 
+Step 4: Right click the other ethernet. Select Rename. <br />
+- Rename it "X_Internal_X" <br />
+<br /> 
+Step 5:Right Click on "X_Internal_X". Select Properties. <br />
+- Double-Click: "Internet Protocol Version 4 (TCP/IPv4)" <br />
+- Click: "Use the following IP address:" <br />
+<br />
+Step 6: Enter the following and click "Ok": <br />
+- IP address: 172.16.0.1 <br />
+- Subnet mask: 255.255.255.0 <br />
+- * LEAVE DEFAULT GATEWAY BLANK, DC WILL SERVE AS THIS * <br />
+- Preferred DNS server: 172.16.0.1 <br />
+</p>
+
+<h2>Part 3: Rename the PC and Install Active Directory Domain Services</h2>
+
+<p>
+Step 1: Right click the start menu. Navigate to System. <br />
+- Click "Rename this PC" <br />
+- Name the PC, "DC" <br />
+- Click Restart. <br />
+<br />
+Step 2: Login to the machine. <br />
+<br />
+Step 3: Click "Add Roles and Features" <br />
+- Click Next until you reach "Server Selection" <br /> 
+- Make sure that "DC" is selected and click Next <br /> 
+- Choose "Active Directory Domain Services" <br /> 
+- Click Next until the Install button appears and install the role. <br />
+<br /> 
+Step 4: Click the flag with the yellow symbol in the upper left corner <br /> 
+- Click the link that says " Promotethe server to a domain controller" <br /> 
+<br /> 
+Step 5: Click "Add a new forest" <br /> 
+- Enter "mydomain.com" in the Root domain name section <br /> 
+- Click Next, make the password "Password1" <br /> 
+- Click Next until you are prompted to install. <br /> 
+- The system will automatically restart. <br /> 
+<br />
+Step 6: Login to the system. <br /> 
+</p>
+
+<h2>Part 4: Create Domain Admin account and </h2>
+
+<p>
+Step 1: Navigate to Start > Windows Administrative Tools > Active Directory Users and Computers <br /> 
+- Click mydomain.com <br /> 
+<br />
+Step 2: Right Click on mydomain.com > New > Organizational Unit <br /> 
+- Enter "_ADMINS" in the Name section <br /> 
+- Uncheck the checked box and click ok <br /> 
+<br />
+Step 3: Right Click on mydomain.com > New > User <br /> 
+- Enter your First and Last name <br /> 
+- User logon name will follow this convention: "a-'FIRST INITIAL''LAST NAME'" <br /> 
+&nbsp; - i.e. a-tsmith <br /> 
+- Click Next and use "Password1" as the password <br /> 
+- Uncheck "User must change password at next logon" and check "Password never expires" <br /> 
+- Click next and finish. <br /> 
+<br /> 
+Step 4: Navigate to mydomain.com > _ADMINS <br /> 
+- Right click on the newly created user <br /> 
+- Navigate to Properties > Member Of <br /> 
+- Click Add <br /> 
+- Enter "domain admins" in the "Enter the object names to select" box and click Check Names <br /> 
+- Click Ok, Apply, Ok <br /> 
+<br /> 
+Step 5: Sign Out of the machine. <br /> 
+<br />
+Step 6: Select Other user on the login screen. <br /> 
+- Use the newly created user's credentials.  <br /> 
+</p>
+
+<h2>Part 5: Install RAS/NAT</h2>
 
 <p>
 Step 1: 
+<br />
 Step 2: 
-Step 3: 
-Step 4: 
+<br />
+Step 3:
+<br /> 
+Step 4:
+<br /> 
 Step 5:
-Step 6: 
-Step 7: 
-Step 8: 
-Step 9: 
-Step 10: 
-Step 11: 
-Step 12: 
+<br />
+Step 6:
+<br /> 
+Step 7:
+<br /> 
+Step 8:
+<br /> 
+Step 9:
+<br /> 
+Step 10:
+<br /> 
+Step 11:
+<br /> 
+Step 12:
+<br /> 
 Step 13: 
+<br />
+</p>
+
+
+<h2>Part 6:</h2>
+
+<p>
+Step 1: 
+<br />
+Step 2: 
+<br />
+Step 3:
+<br /> 
+Step 4:
+<br /> 
+Step 5:
+<br />
+Step 6:
+<br /> 
+Step 7:
+<br /> 
+Step 8:
+<br /> 
+Step 9:
+<br /> 
+Step 10:
+<br /> 
+Step 11:
+<br /> 
+Step 12:
+<br /> 
+Step 13: 
+<br />
 </p>
 
 
