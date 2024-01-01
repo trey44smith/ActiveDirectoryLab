@@ -158,13 +158,25 @@ Step 6: Select Other user on the login screen. <br />
 <h2>Part 5: Install RAS/NAT</h2>
 
 <p>
-Step 1: 
+Step 1: Click "Add Roles and Features" <br />
+- Click Next until you reach "Server Selection" <br /> 
+- Make sure that "DC" is selected and click Next <br /> 
+- Choose "Remote Access" <br /> 
+- Click Next until you reach "Role Services"
+- Check "Routing"
+- Click Next until the Install button appears and install the role. <br />
 <br />
-Step 2: 
+Step 2: In the upper right hand corner, navigate to Tools > Routing and Remote Access
 <br />
-Step 3:
+ <br />
+Step 3: Right click on DC in the menu <br />
+- Select "Configure and enable" <br />
+- Click Next and select the option that says "Network address translation (NAT)" <br />
+- * Please close and repeat step 2 and 3 if the network interfaces section is empty when you click next * <br />
+- Select the "Use this public interface to connect to the internet" option <br />
+- Select the "_INTERNET_" option and click next and finish <br />
 <br /> 
-Step 4:
+Step 4: 
 <br /> 
 Step 5:
 <br />
