@@ -205,6 +205,37 @@ Step 8: Right click dc.mydomain.com and select refresh <br />
 <h2>Part 6: Add users using PowerShell</h2>
 
 <p>
+Step 1: Download the .ps1 and the .txt file from windows in the virtual machine <br />
+- Save in a location that you won't forget <br />
+<br />
+Step 2: Open the text file, add your name on the first line, and save the file <br />
+<br />
+Step 3: Click the start button and navigate to Windows Powershell <br />
+- Right click and Run as administrator <br />
+- Click yes <br />
+<br /> 
+Step 4: Click open and select the .ps1 file <br />
+<br /> 
+Step 5: In the command window enter: Set-ExecutionPolicy Unrestricted <br />
+- Click "yes to all" <br />
+<br />
+Step 6: CD to the location of the text file <br />
+- run ls to ensure the text file is there in the directory <br />
+<br /> 
+Step 7: Run the .ps1 file, and click run when the message window appears <br />
+<br /> 
+Step 8: Navigate to Active Directory Users and Computers <br />
+- Right click on mydomain.com and select Refresh <br />
+- Users folder will now be created and created users will be found <br />
+<br /> 
+Step 9: Right click mydomain.com and select find <br />
+- This allows you to search for any created user <br />
+<br />
+</p>
+
+<h2>Part 7: Create Windows 10 Virtual Machine</h2>
+
+<p>
 Step 1: 
 <br />
 Step 2: 
