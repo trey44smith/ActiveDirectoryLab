@@ -155,15 +155,15 @@ Step 6: Select Other user on the login screen. <br />
 - Use the newly created user's credentials.  <br /> 
 </p>
 
-<h2>Part 5: Install RAS/NAT</h2>
+<h2>Part 5: Install RAS/NAT and configure DHCP Server</h2>
 
 <p>
 Step 1: Click "Add Roles and Features" <br />
 - Click Next until you reach "Server Selection" <br /> 
 - Make sure that "DC" is selected and click Next <br /> 
 - Choose "Remote Access" <br /> 
-- Click Next until you reach "Role Services"
-- Check "Routing"
+- Click Next until you reach "Role Services" <br /> 
+- Check "Routing" <br /> 
 - Click Next until the Install button appears and install the role. <br />
 <br />
 Step 2: In the upper right hand corner, navigate to Tools > Routing and Remote Access
@@ -176,30 +176,33 @@ Step 3: Right click on DC in the menu <br />
 - Select the "Use this public interface to connect to the internet" option <br />
 - Select the "_INTERNET_" option and click next and finish <br />
 <br /> 
-Step 4: 
+Step 4: Step 1: Click "Add Roles and Features" <br />
+- Click Next until you reach "Server Selection" <br /> 
+- Make sure that "DC.mydomain.com" is selected and click Next <br /> 
+- Choose "DHCP Server" <br /> 
+- Click Next until the Install button appears and install the role. <br />
 <br /> 
-Step 5:
+Step 5: In the upper right hand corner, navigate to Tools > DHCP <br /> 
 <br />
-Step 6:
+Step 6: Right Click IPv4, select "New Scope", and click Next <br /> 
+- Enter 172.16.0.100-200 in the name section, click next <br /> 
+- Enter 172.16.0.100 in the Start IP address <br /> 
+- Enter 172.16.0.200 in the End IP address <br /> 
+- Change the length to 24 <br /> 
+- Keep the Subnet mask as 255.255.255.0 <br /> 
+- Click next twice and then enter 8 days, or your preference, for lease duration <br /> 
+- Click next twice and then enter 172.16.0.1 as the Router IP address <br /> 
+- Make sure to click add and then Next <br /> 
+- Click Next until you press finish <br /> 
 <br /> 
-Step 7:
+Step 7: Right click dc.mydomain.com and select authorize <br /> 
 <br /> 
-Step 8:
+Step 8: Right click dc.mydomain.com and select refresh <br /> 
 <br /> 
-Step 9:
-<br /> 
-Step 10:
-<br /> 
-Step 11:
-<br /> 
-Step 12:
-<br /> 
-Step 13: 
-<br />
 </p>
 
 
-<h2>Part 6:</h2>
+<h2>Part 6: Add users using PowerShell</h2>
 
 <p>
 Step 1: 
