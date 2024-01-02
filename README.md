@@ -25,7 +25,7 @@ Creating an Active Directory Home Lab using Windows 10 on VirtualBox. I then add
 <br />
 </p>
 
-<h2>Part 1:</h2>
+<h2>Part 1: Create the Domain Controller Virtual Machine</h2>
 
 <p>
 Step 1: Download and install VirtualBox and the Extension Pack(https://www.virtualbox.org/wiki/Downloads) <br />
@@ -236,31 +236,57 @@ Step 9: Right click mydomain.com and select find <br />
 <h2>Part 7: Create Windows 10 Virtual Machine</h2>
 
 <p>
-Step 1: 
+Step 1: Go to VirtualBox <br />
+- Select New <br />
+- Name the machine "Client1" <br />
+- Select Windows 10 64-bit as the Version <br />
+- Click continue <br />
+- Stick with 2048 MB RAM unless you know your system can handle more <br />
+- Click continue until the machine is created <br />
 <br />
-Step 2: 
+Step 2: Update Settings<br />
+- Settings > General > Advanced > Shared Clipboard: Biderectional <br />
+- Settings > General > Advanced > Drag'n'Drop: Biderectional <br />
+- Settings > General > Network > Adapter 1 > Enable Network Adapter > Attached to: Internal Network <br />
 <br />
-Step 3:
+Step 3: Start the machine <br />
 <br /> 
-Step 4:
+Step 4: Start the Virtual Machine (VM) <br />
+- Select Windows 10 ISO, click choose, and click start <br />
 <br /> 
-Step 5:
+Step 5: Click Next and Install once the machine restarts <br />
+- Click "I don't have a product key" <br />
+- Select Windows 10 Pro and click next until you reach Windows Setup <br />
+- Select Custom and next <br />
+- The system will restart multiple times during installation <br />
+- ** Do not press any buttons while system restarts during installation **<br />
 <br />
-Step 6:
+Step 6: Choose your language and keyboard layout <br />
 <br /> 
-Step 7:
+Step 7: Choose continue with limited setup <br />
 <br /> 
-Step 8:
+Step 8: Name the PC "user" and click next twice <br />
 <br /> 
-Step 9:
+Step 9: Disable all options in the privacy settings window <br />
 <br /> 
-Step 10:
+Step 10: Click not now for Cortana <br />
 <br /> 
-Step 11:
+Step 11: Run command line and run the ipconfig command to ensure the internet is configured properly <br />
+- Next, run "ping google.com" <br />
 <br /> 
-Step 12:
-<br /> 
-Step 13: 
+Step 12: Right click start menu and navigate to System <br />
+- Scroll down and click "Rename this PC (advanced)" <br />
+- Click Change <br />
+- Enter "Client1" in the Computer name section <br />
+- In the Member of section, enter mydomain.com in the Domain box <br />
+<br />  
+Step 13: Enter your account credentials when prompted, click ok, and click restart <br />
+<br />
+Step 14: Navigate to the login screen and select Other user <br />
+<br />
+Step 15: Login with any user account credentials <br />
+<br />
+Step 16: Successful login means the home lab has been set up! <br />
 <br />
 </p>
 
